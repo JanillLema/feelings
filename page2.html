@@ -1,0 +1,225 @@
+<html>
+<head><script src="jquery-1.12.2.min.js"></script>
+	<title>i feel lonely</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<style>
+            body {
+                background: url('http://4.bp.blogspot.com/-rmkf2m2824Y/UCK4iRnlV-I/AAAAAAAAAdA/erwgGA9HFJs/s1600/nature.gif')no-repeat;
+				background-size:100%;
+				height: 140px;
+				display:block;
+				padding:0 !important;
+				margin:0;
+				}
+	</style>
+</head>
+<body>
+	<div data-role = "content">
+	<div data-role = "page" id = "page2">
+	<p>:))</p>
+	
+	</div></div>
+
+</body>
+<head>
+  <meta charset="utf-8">
+
+
+  <title>jQuery UI Droppable - Simple photo manager</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+  <style>
+    #gallery {
+      float: left;
+      width: 65%;
+      min-height: 12em;
+    }
+    .gallery.custom-state-active {
+      background: #eee;
+    }
+    .gallery li {
+      float: left;
+      width: 96px;
+      padding: 0.4em;
+      margin: 0 0.4em 0.4em 0;
+      text-align: center;
+      display: block;
+    }
+    .gallery li h5 {
+      margin: 0 0 0.4em;
+      cursor: move;
+    }
+    .gallery li a {
+      float: right;
+    }
+    .gallery li a.ui-icon-zoomin {
+      float: left;
+    }
+    //.gallery li img {
+      width: 100%;
+      cursor: move;
+      display: block;
+    }
+    .photo1 {
+      width: 300px;
+      height: 100px;
+    }
+    .photo2 {
+      width: 300px;
+      height: 100px;
+      
+    }
+    .photo3 {
+      width: 300px;
+      height: 100px;
+      
+    }
+    .photo4 {
+      width: 300px;
+      height: 100px;
+     
+    }
+    .clr {
+      clear: both;
+    }
+    #trash {
+      float: right;
+      width: 32%;
+      min-height: 18em;
+      padding: 1%;
+    }
+    #trash h4 {
+      line-height: 16px;
+      margin: 0 0 0.4em;
+    }
+    #trash h4 .ui-icon {
+      float: left;
+    }
+    #trash .gallery h5 {
+      display: none;
+    }
+    //#trash h4 {
+      line-height: 16px;
+      margin: 0 0 0.4em;
+    }
+    //#trash h4 .ui-icon {
+      float: left;
+    }
+    //#trash .gallery h5 {
+      display: none;
+    }
+  </style>
+  <script>
+    $(function() {
+
+      var $gallery = $("#gallery");
+      var $trash = $("#trash");
+      var $photo1 = $("#photo1");
+      var $photo2 = $("#photo2");
+      var $photo3 = $("#photo3");
+      var $photo4 = $("#photo4");
+
+
+
+      // let the gallery items be draggable
+      $("li", $gallery).draggable({
+        cancel: "a.ui-icon", // clicking an icon won't initiate dragging
+        revert: "invalid", // when not dropped, the item will revert back to its initial position
+        containment: "document",
+        helper: "clone",
+        cursor: "move"
+      });
+
+      // let the trash be droppable, accepting the gallery items
+      $trash.droppable({
+        accept: "#gallery > li",
+        activeClass: "ui-state-highlight",
+        drop: function(event, ui) {
+          arry = ["images/2.jpg", "images/3.jpg", "images/4.jpg", "images/5.jpg"];
+          var path = $('img').attr('src');
+          var path1 = $('img' + '#c2').attr('src');
+          var path2 = $('img' + '#c3').attr('src');
+          var path3 = $('img' + '#c4').attr('src');
+
+
+          if ($("#photo1:has(img.photo1)").length == 0) {
+
+            alert("You are never alone. Someone out there loves you more than you will ever know");
+
+            document.getElementById('dc1').src = path;
+            $(this).append($(gallery.draggable).clone());
+
+          }
+
+
+
+        }
+
+
+
+      });
+
+
+      // let the gallery be droppable as well, accepting items from the trash
+      $gallery.droppable({
+        accept: "#trash li",
+        activeClass: "custom-state-active",
+        drop: function(event, ui) {
+          recycleImage(ui.draggable);
+        }
+      });
+
+
+    });
+  </script>
+</head>
+
+<body>
+
+  <div class="ui-widget ui-helper-clearfix">
+
+    <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
+      <li class="ui-widget-content ui-corner-tr">
+
+        <img src="http://static.tumblr.com/b54db8594045684830de5b00a38da68a/jwbi5b6/X48o20bi0/tumblr_static_7dh3659mtj400g80gwo04kg0s.png" id="c1">
+
+
+      </li>
+      <li class="ui-widget-content ui-corner-tr">
+
+        <img src="http://static.tumblr.com/b54db8594045684830de5b00a38da68a/jwbi5b6/X48o20bi0/tumblr_static_7dh3659mtj400g80gwo04kg0s.png" id="c2">
+
+
+      </li>
+      <li class="ui-widget-content ui-corner-tr">
+
+        <img src="http://static.tumblr.com/b54db8594045684830de5b00a38da68a/jwbi5b6/X48o20bi0/tumblr_static_7dh3659mtj400g80gwo04kg0s.png" id="c3">
+
+
+      </li>
+      <li class="ui-widget-content ui-corner-tr">
+
+        <img src="http://static.tumblr.com/b54db8594045684830de5b00a38da68a/jwbi5b6/X48o20bi0/tumblr_static_7dh3659mtj400g80gwo04kg0s.png" id="c4">
+
+
+      </li>
+    </ul>
+
+    <div id="trash" class="ui-widget-content ui-state-default dummy">
+      <img src="http://s5.favim.com/orig/51/panda-bear-gift-animated-cute-Favim.com-551985.gif" id="dc1">
+	  <div class="photo1" id="photo1">
+
+      </div>
+
+      <div class="clr"></div>
+    </div>
+    <div class="clr"></div>
+  </div>
+  <div class="clr"></div>
+
+</body>
+</html>
